@@ -10,11 +10,11 @@ export interface Props extends Pick<ResponseData, "current" | "hourly"> {
   title: string;
 }
 
-const WeatherCard = ({ title, current, hourly }: Props) => {
+const WeatherCard = ({ title, current, hourly, ...props }: Props) => {
   const allTemps = hourly.map((h) => h.temp);
 
   return (
-    <div className={classes.weathercard}>
+    <div className={classes.weathercard} {...props}>
       <p className={classes.titleContainer}>
         <span className={classes.title}>{title}</span>
         <span className={classes.date}>{convertDate(current.dt)}</span>

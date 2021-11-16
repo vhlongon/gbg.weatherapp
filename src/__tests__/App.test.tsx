@@ -71,6 +71,11 @@ describe("App", () => {
 
     await waitForElementToBeRemoved(() => screen.getByText("loading..."));
 
+    expect(screen.getByText("Weather in Gothenburg")).toBeInTheDocument();
+    expect(screen.getByText("Today's weather")).toBeInTheDocument();
+    expect(screen.getByTestId("today-weather")).toBeInTheDocument();
+
+    expect(screen.getByText("Latest 4 days")).toBeInTheDocument();
     expect(screen.getByLabelText("weather-list")).toBeInTheDocument();
   });
 

@@ -42,7 +42,13 @@ const App = () => {
           <h2 className={classes.pagesubTitle}>
             <TermometerIcon color="#f5cc7f" size={60} /> Today's weather
           </h2>
-          {<WeatherCard {...today} title="Gothenburg" />}
+          {
+            <WeatherCard
+              {...today}
+              title="Gothenburg"
+              data-testid="today-weather"
+            />
+          }
 
           <hr />
           <h2 className={classes.pagesubTitle}>
