@@ -2,6 +2,9 @@ import React, { Fragment } from "react";
 import { ResponseData } from "../types";
 import classes from "./weathercard.module.css";
 import { convertDate, getAverageTemp, getMedianTemp } from "../utils/utils";
+import WindyIcon from "../icons/Windy";
+import RainyIcon from "../icons/Rainy";
+import CloudySunnyIcon from "../icons/CloudySunny";
 
 export interface Props extends Pick<ResponseData, "current" | "hourly"> {
   title: string;
@@ -48,19 +51,24 @@ const WeatherCard = ({ title, current, hourly }: Props) => {
 
       <ul className={classes.weatherInfo}>
         <li className={classes.weatherInfoItem} aria-label="humidity">
-          <strong>Humidity</strong>
+          <strong>
+            Humidity <RainyIcon size={30} color="#7f9cf5" />
+          </strong>
           <span>{current.humidity}%</span>
         </li>
         <li className={classes.weatherInfoItem} aria-label="wind-speed">
-          <strong>Wind speed</strong>
+          <strong>
+            Wind speed <WindyIcon size={30} color="#7f9cf5" />
+          </strong>
           <span>{current.wind_speed} m/s</span>
         </li>
         <li className={classes.weatherInfoItem} aria-label="visibility">
-          <strong>Visibility</strong>
+          <strong>
+            Visibility <CloudySunnyIcon size={30} color="#7f9cf5" />
+          </strong>
           <span>{current.visibility} m</span>
         </li>
       </ul>
-      <br />
     </div>
   );
 };
