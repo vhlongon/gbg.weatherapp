@@ -20,5 +20,3 @@ export const getMedianTemp = (...args: number[]) => {
 
   return `${median.toFixed(2)}°`;
 };
-
-export const getPrecipitation = (pop: number) => `${pop * 100}%`;
