@@ -6,7 +6,7 @@ export const useAsync = function <T = unknown>(
   immediate = true
 ) {
   const [data, setData] = useState<T | null>(null);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<(Error & { status: number }) | null>(null);
   const [status, setStatus] = useState<Status>("idle");
 
   const execute = useCallback(() => {

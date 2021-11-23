@@ -7,7 +7,7 @@ export const convertDate = (dt: number) =>
 
 export const getAverageTemp = (...args: number[]) => {
   const total = args.reduce((acc, val) => acc + val, 0);
-  return `${(total / args.length).toFixed(2)}°`;
+  return Number((total / args.length).toFixed(2));
 };
 
 export const getMedianTemp = (...args: number[]) => {
@@ -18,5 +18,5 @@ export const getMedianTemp = (...args: number[]) => {
   const median =
     len % 2 == 0 ? (arrSort[mid] + arrSort[mid - 1]) / 2 : arrSort[mid - 1];
 
-  return `${median.toFixed(2)}°`;
+  return Number(median.toFixed(2));
 };

@@ -45,11 +45,14 @@
 
 .errorContainer {
   color: #f57f7f;
+  border: 1px solid #f57f7f;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  border-radius: 0.25rem;
+  margin: 0 auto;
+  padding: 2rem 4rem;
 }
 
 .loadingContainer {

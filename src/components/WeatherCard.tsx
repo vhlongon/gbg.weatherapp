@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
 import { ResponseData } from "../types";
 import classes from "./weathercard.module.css";
-import { convertDate, getAverageTemp, getMedianTemp } from "../utils/utils";
+import { convertDate, getAverageTemp, getMedianTemp } from "../utils";
 import WindyIcon from "../icons/Windy";
 import RainyIcon from "../icons/Rainy";
 import CloudySunnyIcon from "../icons/CloudySunny";
+import WeatherTemps from "./WeatherTemps";
 
 export interface Props extends Pick<ResponseData, "current" | "hourly"> {
   title: string;
@@ -30,24 +31,12 @@ const WeatherCard = ({ title, current, hourly, ...props }: Props) => {
           </div>
         ))}
       </div>
-      <div className={classes.tempContainer}>
-        <div className={classes.temperature} aria-label="avg-temp">
-          <small>Avg:</small> {getAverageTemp(...allTemps)}
-        </div>
-
-        <div className={classes.temperature} aria-label="median-temp">
-          <small>Median:</small> {getMedianTemp(...allTemps)}
-        </div>
-      </div>
-
-      <div className={classes.tempContainer}>
-        <div className={classes.temperature} aria-label="min-temp">
-          <small>Min:</small> {Math.min(...allTemps)}°
-        </div>
-        <div className={classes.temperature} aria-label="max-temp">
-          <small>Max:</small> {Math.max(...allTemps)}°
-        </div>
-      </div>
+      <WeatherTemps
+        min={Math.min(...allTemps)}
+        max={Math.max(...allTemps)}
+        median={getMedianTemp(...allTemps)}
+        avg={getAverageTemp(...allTemps)}
+      />
 
       <ul className={classes.weatherInfo}>
         <li className={classes.weatherInfoItem} aria-label="humidity">

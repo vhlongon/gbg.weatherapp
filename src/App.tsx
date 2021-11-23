@@ -7,6 +7,9 @@ import SunnyIcon from "./icons/Sunny";
 import TermometerIcon from "./icons/Termometer";
 import classes from "./app.module.css";
 import "./index.css";
+import WeatherTemps from "./components/WeatherTemps";
+import weatherCardClasses from "./components/weathercard.module.css";
+import { getAverageTemp, getMedianTemp } from "./utils";
 
 const App = () => {
   const { data, error, status } = useAsync<ResponseData[]>(fetchWeatherData);
@@ -25,14 +28,26 @@ const App = () => {
 
   if (status === "error") {
     return (
-      <div className={classes.errorContainer}>
-        {typeof error === "string" ? error : error?.message}
+      <div className={classes.container}>
+        <div className={classes.errorContainer}>
+          <span>
+            Message:{" "}
+            <code>{typeof error === "string" ? error : error?.message}</code>
+          </span>
+          <div>
+            <span>Status: </span> <code>{error?.status}</code>
+          </div>
+        </div>
       </div>
     );
   }
 
   if (data) {
     const [today, ...latestDays] = data;
+
+    const allDaysTemps = data
+      .map(({ hourly }) => hourly.map(({ temp }) => temp))
+      .flat();
 
     return (
       <div>
@@ -43,6 +58,7 @@ const App = () => {
           <h2 className={classes.pagesubTitle}>
             <TermometerIcon color="#f5cc7f" size={60} /> Today's weather
           </h2>
+          <hr />
           {
             <WeatherCard
               {...today}
@@ -62,6 +78,18 @@ const App = () => {
               </li>
             ))}
           </ul>
+          <hr />
+          <h2 className={classes.pagesubTitle}>
+            <TermometerIcon color="#f5cc7f" size={60} /> Averages for all days
+          </h2>
+          <div className={weatherCardClasses.weathercard}>
+            <WeatherTemps
+              min={Math.min(...allDaysTemps)}
+              max={Math.max(...allDaysTemps)}
+              median={getMedianTemp(...allDaysTemps)}
+              avg={getAverageTemp(...allDaysTemps)}
+            />
+          </div>
         </div>
       </div>
     );
