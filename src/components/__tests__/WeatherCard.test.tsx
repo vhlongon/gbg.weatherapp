@@ -107,7 +107,6 @@ describe("WeatherCard", () => {
     };
     render(<WeatherCard {...baseProps} />);
 
-
     expect(screen.getByText("title")).toBeInTheDocument();
     expect(screen.getByText("mocked date")).toBeInTheDocument();
 
@@ -125,7 +124,11 @@ describe("WeatherCard", () => {
     expect(screen.getByLabelText("max-temp")).toHaveTextContent("Max: 6.81°");
 
     expect(screen.getByLabelText("humidity")).toHaveTextContent("Humidity 85%");
-    expect(screen.getByLabelText("wind-speed")).toHaveTextContent("Wind speed 3.6 m/s");
-    expect(screen.getByLabelText("visibility")).toHaveTextContent("Visibility 10000 m");
+    expect(screen.getByLabelText("wind-speed")).toHaveTextContent(
+      "Wind speed 3.6 m/s"
+    );
+    expect(screen.getByLabelText("visibility")).toHaveTextContent(
+      "Visibility 10000 m"
+    );
   });
 });

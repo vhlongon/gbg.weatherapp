@@ -6,11 +6,10 @@ import {
 } from "@testing-library/react";
 import App from "../App";
 import * as api from "../api";
-import { ResponseData } from "../types";
 
 jest.mock("../api", () => ({ fetchWeatherData: jest.fn() }));
 
-let mockFetchWeatherData = jest.spyOn(api, "fetchWeatherData");
+const mockFetchWeatherData = jest.spyOn(api, "fetchWeatherData");
 
 describe("App", () => {
   test("renders correctly when fetch data is successful", async () => {

@@ -56,7 +56,7 @@ const App = () => {
             Weather in Gothenburg <SunnyIcon size={100} color="#ffbc02" />
           </h1>
           <h2 className={classes.pagesubTitle}>
-            <TermometerIcon color="#f5cc7f" size={60} /> Today's weather
+            <TermometerIcon color="#f5cc7f" size={60} /> Today weather
           </h2>
           <hr />
           {

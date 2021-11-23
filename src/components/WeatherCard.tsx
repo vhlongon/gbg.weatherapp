@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { ResponseData } from "../types";
 import classes from "./weathercard.module.css";
 import { convertDate, getAverageTemp, getMedianTemp } from "../utils";
