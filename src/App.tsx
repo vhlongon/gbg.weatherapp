@@ -33,6 +33,7 @@ const App = () => {
 
   if (data) {
     const [today, ...latestDays] = data;
+
     return (
       <div>
         <div className={classes.container}>

@@ -21,13 +21,13 @@ const WeatherCard = ({ title, current, hourly, ...props }: Props) => {
       </p>
       <div className={classes.weatherMain}>
         {current.weather.map((w) => (
-          <Fragment key={w.main}>
+          <div className={classes.weatherMainItem} key={w.main}>
             <img
               alt={w.main}
               src={`http://openweathermap.org/img/w/${w.icon}.png`}
             />
             <span>{w.description}</span>
-          </Fragment>
+          </div>
         ))}
       </div>
       <div className={classes.tempContainer}>
