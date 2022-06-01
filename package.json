@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "date-fns": "^2.25.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "remove": "^0.1.5",
     "tailwindcss": "^2.2.19"
   },
@@ -20,7 +20,7 @@
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.11.7",
-    "@types/react": "^17.0.34",
+    "@types/react": "^18.0.10",
     "@types/react-dom": "^17.0.11",
     "@types/testing-library__jest-dom": "^5.14.1",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
